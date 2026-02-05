@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brayden Vandervelde - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #666;
+            --accent: #2962ff;
+            --background: #fafafa;
+            --surface: #ffffff;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--primary);
+            background: var(--background);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 100px;
+            animation: slideDown 0.6s ease-out 0.2s backwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--secondary);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-bottom: 40px;
+        }
+
+        .location {
+            font-size: 0.95rem;
+            color: var(--secondary);
+            font-weight: 400;
+            margin-top: 16px;
+        }
+
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            font-size: 0.9rem;
+        }
+
+        .contact a {
+            color: var(--primary);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .contact a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: var(--accent);
+        }
+
+        .contact a:hover::after {
+            width: 100%;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 80px;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        section:nth-child(2) { animation-delay: 0.3s; }
+        section:nth-child(3) { animation-delay: 0.4s; }
+        section:nth-child(4) { animation-delay: 0.5s; }
+        section:nth-child(5) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* About Section */
+        .about-content {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        /* Experience & Education Items */
+        .item {
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .item-title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .item-date {
+            font-size: 0.875rem;
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
+        .item-subtitle {
+            font-size: 1rem;
+            color: var(--secondary);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .item-description {
+            color: var(--secondary);
+            line-height: 1.7;
+        }
+
+        .item-description ul {
+            margin-top: 12px;
+            padding-left: 20px;
+        }
+
+        .item-description li {
+            margin-bottom: 8px;
+        }
+
+        /* Projects */
+        .project {
+            margin-bottom: 40px;
+            padding: 32px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .project-title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .project-tech {
+            font-size: 0.875rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .project-description {
+            color: var(--secondary);
+            line-height: 1.7;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: transform 0.2s ease;
+        }
+
+        .project-link:hover {
+            transform: translateX(4px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 60px 24px;
+            }
+
+            header {
+                margin-bottom: 60px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                margin-bottom: 60px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .project {
+                padding: 24px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+
+            .project {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Brayden Vandervelde</h1>
+            <p class="subtitle">Student / Wheaton College</p>
+            <div class="contact">
+                <a href="brayden.vandervelde@gmail.com">brayden.vandervelde@gmail.com</a>
+                <a href="tel:+16307161486">+1 (630) 716-1486</a>
+                <a href="https://www.linkedin.com/in/brayden-vandervelde-8b41a12b7" target="_blank">LinkedIn</a>
+            </div>
+            <p class="location">📍 Honolulu, HI</p>
+        </header>
+
+        <section id="about">
+            <h2>About</h2>
+            <div class="about-content">
+                <p>I am a student at Wheaton College, where I am studying Economics and Urban Studies. I am interested in insurance, wealth management, and personal finance. I am from Wheaton, IL and currently live in Honolulu, HI.</p>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Wealth Management Intern</div>
+                    <div class="item-date">May 2025 - August 2025</div>
+                </div>
+                <div class="item-subtitle">Benjamin F. Edwards, Wheaton, IL</div>
+                <div class="item-description">
+                    <p>I worked on the Wealth Management team at Benjamin F. Edwards, where I helped with client relationships and financial planning. I also helped with client onboarding and working with the company's CRM system.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Advisory Intern</div>
+                    <div class="item-date">January 2024 - May 2025</div>
+                </div>
+                <div class="item-subtitle">Chicago Partners Wealth Advisors, Chicago, IL</div>
+                <div class="item-description">
+                    <p>Learned theoretical and practical expertise in portfolio creation, investment theories, tax optimization, emotional intelligence, and market analysis. Responsibilities included asset allocation updates, financial strategy presentations, client & market research, and data organization.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Intern</div>
+                    <div class="item-date">May 2024 - July 2024</div>
+                </div>
+                <div class="item-subtitle">Noguchi & Associates, Honolulu, HI</div>
+                <div class="item-description">
+                    <p>I worked on the benefits team at Noguchi & Associates, where I assisted in open enrollments and gained hands-on experience with Hawaii-specific health insurance and care, contributed to organizing a large active-shooter training event at the Prince Waikiki Hotel, utilized Excel for data analysis and reporting, and participated in various company meetings.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Bachelor of Arts in Economics</div>
+                    <div class="item-date">2022 - 2026</div>
+                </div>
+                <div class="item-subtitle">Minor in Urban Studies</div>
+                <div class="item-subtitle">Wheaton College, Wheaton, IL</div>
+                <div class="item-description">
+                    <p>Focus on financial economics and urban studies.</p>
+                    <p><strong>Relevant Coursework:</strong> Financial Economics, Economics of Labor & Poverty, Econometrics, Microeconomics, Macroeconomics, and Statistics.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project">
+                <div class="project-title">Faith-Based Investing: Risk, Returns, and Governance Insights</div>
+                <div class="project-tech">Economics, Finance, and Ethics</div>
+                <div class="project-description">
+                    Developed a reproducible Python workflow to analyze the risk-adjusted performance of faith-based and ESG investment funds. Implemented CAPM regressions using excess returns and clustered standard errors across a multi-year dataset. Results suggest performance variation is driven by market exposure rather than ethical classification.
+                </div>
